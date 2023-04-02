@@ -207,17 +207,6 @@ namespace Draw
 				WidthTF.Clear();
 				this.viewPort.Invalidate();
 			}
-			//if (OpacityTF.Text.Length != 0)
-			//{
-			//	dialogProcessor.ChangeOpacity(int.Parse(OpacityTF.ToString()));
-			//	OpacityTF.Clear();
-			//	this.viewPort.Invalidate();
-			//}
-			//if (nameTF.Text.Length != 0)
-			//{
-			//	dialogProcessor.SetName(nameTF.ToString());
-			//	nameTF.Clear();
-			//}
 		}
 
         private void RotateTF_Click(object sender, EventArgs e)
@@ -304,6 +293,33 @@ namespace Draw
 			fStream.Close();
 
 			viewPort.Invalidate();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.AddRandomEllipse();
+            viewPort.Invalidate();
+        }
+
+        private void rectangleCtrlXToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.AddRandomRectangle();
+            viewPort.Invalidate();
+        }
+
+        private void triangleCtrTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.AddRandomTriangle();
+
+            statusBar.Items[0].Text = "Последно действие: Рисуване на триъгълник";
+
+            viewPort.Invalidate();
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.Delete();
+            this.viewPort.Invalidate();
         }
     }
 }

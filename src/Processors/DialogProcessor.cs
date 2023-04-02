@@ -29,6 +29,13 @@ namespace Draw
 			set { selection = value; }
 		}
 		
+        private List<Shape> copyList = new List<Shape>();
+        public List<Shape> CopyList
+        {
+            get { return copyList; }
+            set { copyList = value; }
+        }
+
 
 		/// Дали в момента диалога е в състояние на "влачене" на избрания елемент.
 
@@ -50,6 +57,7 @@ namespace Draw
 		}
 
         #endregion
+
 
         /// Добавя примитив - правоъгълник на произволно място върху клиентската област.
 
@@ -111,7 +119,33 @@ namespace Draw
             ShapeList.Add(triangle);
         }
 
+        internal void Clear()
+        {
+            ShapeList.Clear();
+        }
+        public void Copy()
+        {
 
+        }
+        public void Paste()
+        {
+            foreach (Shape item in CopyList)
+                ShapeList.Add(item);
+        }
+        public void Cut()
+        {
+            CopyList = Selection;
+            foreach (Shape item in Selection)
+                ShapeList.Remove(item);
+        }
+
+        internal void Delete()
+        {
+            foreach (Shape s in selection)
+            {
+                ShapeList.Remove(s);
+            }
+        }
 
         /// <summary>
         /// Проверява дали дадена точка е в елемента.

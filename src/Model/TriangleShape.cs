@@ -81,10 +81,12 @@ namespace Draw
             base.DrawSelf(grfx);
             GraphicsState state = grfx.Save();
 
-            Matrix m = grfx.Transform.Clone();
-            m.Multiply(TransformationMatrix);
+            // Matrix m = grfx.Transform.Clone();
+            // m.Multiply(TransformationMatrix);
 
-            grfx.Transform = m;
+            //grfx.Transform = m;
+
+            grfx.Transform = TransformationMatrix;
 
             Pen pen = new Pen(StrokeColor);
             pen.Width = LineWidth;
@@ -96,6 +98,8 @@ namespace Draw
             PointF[] points = { point1, point2, point3 };
 
             Points = points;
+
+            FillColor = Color.FromArgb(Opacity, FillColor);
 
             grfx.DrawPolygon(pen, Points);
             grfx.FillPolygon(new SolidBrush(FillColor), Points);
