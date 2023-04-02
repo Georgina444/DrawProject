@@ -53,10 +53,15 @@ namespace Draw
 
           //  Matrix m = grfx.Transform.Clone();
           //  m.Multiply(TransformationMatrix);
-		  if(TransformationMatrix != null)
-            grfx.Transform = TransformationMatrix;
+           // grfx.Transform = TransformationMatrix;
+				Matrix m = grfx.Transform.Clone();
 
-            FillColor = Color.FromArgb(Opacity, FillColor);
+		  if(TransformationMatrix != null)
+			m.Multiply(TransformationMatrix);
+
+			grfx.Transform = m;
+
+			FillColor = Color.FromArgb(Opacity, FillColor);
 
 
             Pen pen = new Pen(StrokeColor);

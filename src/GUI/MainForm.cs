@@ -253,25 +253,25 @@ namespace Draw
 				}
 				dialogProcessor.Selection = new List<Shape>();
 			}
-            //else if (e.Modifiers == Keys.Control && e.KeyCode == Keys.C) // Check if Control + C is pressed
-            //{
-            //    clipboard = new List<Shape>();
-            //    foreach (Shape item in dialogProcessor.Selection)
-            //    {
-            //        clipboard.Add(item.Clone()); // Copy selected shapes to clipboard
-            //    }
-            //}
-            //else if (e.Modifiers == Keys.Control && e.KeyCode == Keys.V) // Check if Control + P is pressed
-            //{
-            //    foreach (Shape item in clipboard)
-            //    {
-            //        Shape copy = item.Clone();
-            //        copy.Location = new PointF(copy.Location.X + 10, copy.Location.Y + 10);
-            //        dialogProcessor.ShapeList.Add(copy); // Add a new copy of each shape to the shape list at a different location
-            //    }
-            //}
+			else if (e.Modifiers == Keys.Control && e.KeyCode == Keys.C) // Check if Control + C is pressed
+			{
+				clipboard = new List<Shape>();
+				foreach (Shape item in dialogProcessor.Selection)
+				{
+					clipboard.Add((Shape)item.Clone()); // Copy selected shapes to clipboard
+				}
+			}
+			else if (e.Modifiers == Keys.Control && e.KeyCode == Keys.V) // Check if Control + P is pressed
+			{
+				foreach (Shape item in clipboard)
+				{
+					Shape copy = (Shape)item.Clone();
+					copy.Location = new PointF(copy.Location.X + 10, copy.Location.Y + 10);
+					dialogProcessor.ShapeList.Add(copy); // Add a new copy of each shape to the shape list at a different location
+				}
+			}
 
-        }
+		}
 
 
 		// SAVE AND LOAD

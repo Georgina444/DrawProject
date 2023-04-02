@@ -325,21 +325,28 @@ namespace Draw
         }
 
 
-        public override void Draw(Graphics grfx)
+        public override void DrawShape(Graphics grfx, Shape item )
         {
             //For every item in subshape visualize
-            base.Draw(grfx);
+            base.DrawShape(grfx, item);
 
-            if (Selection.Count > 0)
+            if (selection.Contains(item))
             {
-                foreach (Shape item in Selection)
-                    grfx.DrawRectangle(
+                GraphicsState state = grfx.Save();
+
+                Matrix m = grfx.Transform.Clone();
+                m.Multiply(item.TransformationMatrix);
+
+                grfx.Transform = m;
+                grfx.DrawRectangle(
                     new Pen(Color.Red),
                     item.Location.X - 3,
                     item.Location.Y - 3,
                     item.Width + 6,
                     item.Height + 6
-                  );
+
+                    );
+                grfx.Restore(state);
             }
 
         }

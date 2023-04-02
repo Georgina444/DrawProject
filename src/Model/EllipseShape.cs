@@ -70,10 +70,12 @@ namespace Draw
 			base.DrawSelf(grfx);
 			GraphicsState state = grfx.Save();
 
-			//Matrix m = grfx.Transform.Clone();
-			//m.Multiply(TransformationMatrix);
+			Matrix m = grfx.Transform.Clone();
+			m.Multiply(TransformationMatrix);
 
-			grfx.Transform = TransformationMatrix;
+			grfx.Transform = m;
+
+		//	grfx.Transform = TransformationMatrix;
 
 			FillColor = Color.FromArgb(Opacity, FillColor);
 
