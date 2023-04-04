@@ -74,10 +74,12 @@
             this.WidthTF = new System.Windows.Forms.ToolStripTextBox();
             this.editButton = new System.Windows.Forms.ToolStripButton();
             this.deleteButton = new System.Windows.Forms.ToolStripButton();
-            this.viewPort = new Draw.DoubleBufferedPanel();
             this.copyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.viewPort = new Draw.DoubleBufferedPanel();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.mainMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.speedMenu.SuspendLayout();
@@ -115,7 +117,7 @@
             this.saveMenuItem1.Name = "saveMenuItem1";
             this.saveMenuItem1.ShortcutKeyDisplayString = "Ctrl+S";
             this.saveMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.saveMenuItem1.Size = new System.Drawing.Size(141, 22);
             this.saveMenuItem1.Text = "Save ";
             this.saveMenuItem1.Click += new System.EventHandler(this.saveMenuItem1_Click);
             // 
@@ -124,7 +126,7 @@
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
             this.exitToolStripMenuItem1.ShortcutKeyDisplayString = "Ctr+Q";
             this.exitToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
@@ -133,7 +135,7 @@
             this.loadToolStripMenuItem1.Name = "loadToolStripMenuItem1";
             this.loadToolStripMenuItem1.ShortcutKeyDisplayString = "Ctrl+L";
             this.loadToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.loadToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.loadToolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
             this.loadToolStripMenuItem1.Text = "Load";
             this.loadToolStripMenuItem1.Click += new System.EventHandler(this.loadToolStripMenuItem1_Click);
             // 
@@ -202,7 +204,7 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.ShortcutKeyDisplayString = "Ctrl+Z";
             this.toolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(167, 22);
             this.toolStripMenuItem2.Text = "Ellipse";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
@@ -211,7 +213,7 @@
             this.rectangleCtrlXToolStripMenuItem.Name = "rectangleCtrlXToolStripMenuItem";
             this.rectangleCtrlXToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+X";
             this.rectangleCtrlXToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.rectangleCtrlXToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rectangleCtrlXToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.rectangleCtrlXToolStripMenuItem.Text = "Rectangle";
             this.rectangleCtrlXToolStripMenuItem.Click += new System.EventHandler(this.rectangleCtrlXToolStripMenuItem_Click);
             // 
@@ -220,7 +222,7 @@
             this.triangleCtrTToolStripMenuItem.Name = "triangleCtrTToolStripMenuItem";
             this.triangleCtrTToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+T";
             this.triangleCtrTToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.triangleCtrTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.triangleCtrTToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.triangleCtrTToolStripMenuItem.Text = "Triangle";
             this.triangleCtrTToolStripMenuItem.Click += new System.EventHandler(this.triangleCtrTToolStripMenuItem_Click);
             // 
@@ -394,7 +396,9 @@
             this.toolStripLabel4,
             this.WidthTF,
             this.editButton,
-            this.deleteButton});
+            this.deleteButton,
+            this.toolStripButton6,
+            this.toolStripButton7});
             this.toolStrip2.Location = new System.Drawing.Point(0, 49);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(693, 25);
@@ -503,20 +507,6 @@
             this.deleteButton.Text = "Delete";
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
-            // viewPort
-            // 
-            this.viewPort.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.viewPort.Location = new System.Drawing.Point(0, 49);
-            this.viewPort.Name = "viewPort";
-            this.viewPort.Size = new System.Drawing.Size(693, 352);
-            this.viewPort.TabIndex = 4;
-            this.viewPort.Load += new System.EventHandler(this.viewPort_Load);
-            this.viewPort.Paint += new System.Windows.Forms.PaintEventHandler(this.ViewPortPaint);
-            this.viewPort.KeyDown += new System.Windows.Forms.KeyEventHandler(this.viewPort_KeyDown);
-            this.viewPort.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseDown);
-            this.viewPort.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseMove);
-            this.viewPort.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseUp);
-            // 
             // copyToolStripMenuItem1
             // 
             this.copyToolStripMenuItem1.Name = "copyToolStripMenuItem1";
@@ -540,6 +530,40 @@
             this.pasteToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.pasteToolStripMenuItem1.Size = new System.Drawing.Size(211, 22);
             this.pasteToolStripMenuItem1.Text = "Paste";
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton6.Text = "circleButton";
+            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
+            // 
+            // viewPort
+            // 
+            this.viewPort.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.viewPort.Location = new System.Drawing.Point(0, 49);
+            this.viewPort.Name = "viewPort";
+            this.viewPort.Size = new System.Drawing.Size(693, 352);
+            this.viewPort.TabIndex = 4;
+            this.viewPort.Load += new System.EventHandler(this.viewPort_Load);
+            this.viewPort.Paint += new System.Windows.Forms.PaintEventHandler(this.ViewPortPaint);
+            this.viewPort.KeyDown += new System.Windows.Forms.KeyEventHandler(this.viewPort_KeyDown);
+            this.viewPort.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseDown);
+            this.viewPort.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseMove);
+            this.viewPort.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseUp);
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
+            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton7.Text = "circletoolstripbutton";
+            this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
             // 
             // MainForm
             // 
@@ -624,5 +648,7 @@
         private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripButton toolStripButton6;
+        private System.Windows.Forms.ToolStripButton toolStripButton7;
     }
 }

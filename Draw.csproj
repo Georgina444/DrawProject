@@ -73,6 +73,8 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="src\GUI\Program.cs" />
+    <Compile Include="src\Model\Circle.cs" />
+    <Compile Include="src\Model\SquareShape.cs" />
     <Compile Include="src\Model\GroupShape.cs" />
     <Compile Include="src\Model\TriangleShape.cs" />
     <Compile Include="src\Model\StarShape.cs" />

@@ -8,18 +8,25 @@ namespace Draw
 	[Serializable]	
 	public abstract class Shape
 	{
-		#region Constructors
-		
-		public Shape()
+        #region Constructors
+
+
+        //  This is the default constructor for the Shape class. It creates a new Shape object with no initial values.
+        public Shape()
 		{
 		}
-		
-		public Shape(RectangleF rect)
+
+        // This constructor is used to create a Shape object within a specified size and location.
+
+        public Shape(RectangleF rect)
 		{
 			rectangle = rect;
 		}
-		
-		public Shape(Shape shape)
+
+
+        // This constructor takes a Shape object as a parameter and creates a new Shape object
+		// with the same properties as the passed in object. 
+        public Shape(Shape shape)
 		{
 			this.Height = shape.Height;
 			this.Width = shape.Width;
@@ -43,7 +50,7 @@ namespace Draw
 		}
 		
 		
-		/// Горен ляв ъгъл на елемента.
+		/// Represent the location of an element (Горен ляв ъгъл на елемента)
 		public virtual PointF Location {
 			get { return Rectangle.Location; }
 			set { rectangle.Location = value; }
@@ -86,7 +93,11 @@ namespace Draw
 			set { opacity = value;}
 		}
 
-		[NonSerialized]
+
+        // The property provides a way to get or set the value of the transformationMatrix field.
+        //  A transformation matrix can be used to represent various geometric transformations,
+		//  including rotations, translations, scaling, and shearing. 
+        [NonSerialized]
 		public Matrix transformationMatrix = new Matrix();
 		public virtual Matrix TransformationMatrix
 		{
@@ -95,7 +106,6 @@ namespace Draw
 		}
 
         private int rotate;
-
         public virtual int Rotate
         {
             get { return rotate; }
@@ -103,38 +113,34 @@ namespace Draw
         }
 
 
-		/// Височина на елемента.
+		// Височина на елемента.
 		public virtual float Height {
 			get { return Rectangle.Height; }
 			set { rectangle.Height = value; }
 		}
 
-		/// Широчина на елемента.
-
+		// Широчина на елемента.
 		public virtual float Width {
 			get { return Rectangle.Width; }
 			set { rectangle.Width = value; }
 		}
 		
-
-
-        // Ellipse
-
         #endregion
 
 
         /// Проверка дали точка point принадлежи на елемента.
         /// <param name="point">Точка</param>
         /// <returns>Връща true, ако точката принадлежи на елемента и
-        /// false, ако не пренадлежи</returns>
+        /// false, ако не пренадлежи
         public virtual bool Contains(PointF point)
 		{
 			return Rectangle.Contains(point.X, point.Y);
 		}
-		
-		/// Визуализира елемента.
-		/// <param name="grfx">Къде да бъде визуализиран елемента.</param>
-		public virtual void DrawSelf(Graphics grfx)
+
+        /// Визуализира елемента.
+        /// <param name="grfx">Къде да бъде визуализиран елемента.</param>
+        /// the "grfx" parameter represents the Graphics object that you can use to draw the shape on the drawing surface. 
+        public virtual void DrawSelf(Graphics grfx)
 		{
 			// shape.Rectangle.Inflate(shape.BorderWidth, shape.BorderWidth);
 		}
@@ -145,7 +151,7 @@ namespace Draw
             // Create a new instance of the same type as the current object
             Shape newShape = (Shape)Activator.CreateInstance(this.GetType());
 
-            // Set the properties of the new instance to the same values as the current object
+            // Set the properties of the new instance 
             newShape.Location = this.Location;
             newShape.Height = this.Height;
             newShape.Width = this.Width;

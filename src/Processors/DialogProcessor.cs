@@ -105,6 +105,43 @@ namespace Draw
 			ShapeList.Add(star);
 		}
 
+        // CIRCLE
+        public void AddRandomCircle()
+        {
+            Random rnd = new Random();
+            int x = rnd.Next(100, 1000);
+            int y = rnd.Next(100, 600);
+
+            int diameter = rnd.Next(50, 200);
+            Circle circle = new Circle(new Rectangle(x, y, diameter, diameter));
+
+            circle.TransformationMatrix.RotateAt(0,
+                new PointF(circle.Rectangle.X + circle.Width / 2, circle.Rectangle.Y + circle.Height / 2));
+
+            circle.FillColor = Color.White;
+            circle.StrokeColor = Color.Black;
+
+            ShapeList.Add(circle);
+        }
+
+        // SQUARE
+
+        public void AddRandomSquare()
+        {
+            Random rnd = new Random();
+            int x = rnd.Next(100, 1000);
+            int y = rnd.Next(100, 600);
+            int size = rnd.Next(50, 200);
+
+            SquareShape square = new SquareShape(new Rectangle(x, y, size, size));
+
+            square.FillColor = Color.White;
+            square.StrokeColor = Color.Black;
+
+            ShapeList.Add(square);
+        }
+
+
         internal void AddRandomTriangle()
         {
             Random rnd = new Random();

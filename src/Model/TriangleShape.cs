@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Draw
 {
-    [Serializable]
+    [Serializable]   // - allows the object of the class to be serialized and deserialized
     class TriangleShape : Shape
     {
         #region Constructor

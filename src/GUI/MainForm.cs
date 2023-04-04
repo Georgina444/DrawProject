@@ -157,7 +157,7 @@ namespace Draw
         {
 			dialogProcessor.AddRandomStar();
 
-			statusBar.Items[0].Text = "Posledno deistvie: Risuvane na zvezda";
+			statusBar.Items[0].Text = "Последно действие: Рисуване на звезда";
 
 			viewPort.Invalidate();
         }
@@ -266,7 +266,7 @@ namespace Draw
 		}
 
 
-
+		// ???????????????????????????????????? //
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             dialogProcessor.AddRandomEllipse();
@@ -347,6 +347,17 @@ namespace Draw
             Close();
         }
 
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.AddRandomCircle();
+            viewPort.Invalidate();
+        }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+			dialogProcessor.AddRandomSquare();
+			viewPort.Invalidate();
+        }
     }
 }
 
