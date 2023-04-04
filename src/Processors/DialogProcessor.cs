@@ -261,16 +261,6 @@ namespace Draw
 		    }
         }
 
-		//public void Rotate(int v)
-		//{
-  //          foreach (Shape s in selection)
-  //          {
-  //              s.TransformationMatrix.RotateAt(v,
-  //              new PointF(s.Rectangle.X + s.Width / 2, s.Rectangle.Y + s.Height / 2));
-  //              s.Rotate += v;
-  //          }
-  //      }
-
         public void Rotate(int v)
         {
             if (selection.Count > 0)

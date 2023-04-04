@@ -163,14 +163,6 @@ namespace Draw
         }
 
 
-		// Line Width
-        private void scaleTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
 		// triangle button
         private void toolStripButton8_Click(object sender, EventArgs e)
         {
@@ -274,26 +266,6 @@ namespace Draw
 		}
 
 
-		// SAVE AND LOAD
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-			FileStream fStream = new FileStream("Draw.bin", FileMode.Create);
-			BinaryFormatter binaryFormatter= new BinaryFormatter();
-			binaryFormatter.Serialize( fStream, dialogProcessor.ShapeList);
-			fStream.Close();
-        }
-
-        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FileStream fStream = new FileStream("Draw.bin", FileMode.Open);
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
-			List<Shape> temp = (List<Shape>)binaryFormatter.Deserialize(fStream);
-			dialogProcessor.ShapeList.Clear();
-			dialogProcessor.ShapeList = temp;
-			fStream.Close();
-
-			viewPort.Invalidate();
-        }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
@@ -321,6 +293,60 @@ namespace Draw
             dialogProcessor.Delete();
             this.viewPort.Invalidate();
         }
+
+        private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.Clear();
+            viewPort.Invalidate();
+        }
+
+        private void backgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			setCanvasColor();
+        }
+
+        private void setCanvasColor()
+        {
+            ColorDialog dlg = new ColorDialog();
+            var dialogResult = dlg.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                this.BackColor = dlg.Color;
+            }
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+		// Save & Load
+        private void saveMenuItem1_Click(object sender, EventArgs e)
+        {
+            FileStream fStream = new FileStream("Draw.bin", FileMode.Create);
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+            binaryFormatter.Serialize(fStream, dialogProcessor.ShapeList);
+            fStream.Close();
+        }
+        private void loadToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FileStream fStream = new FileStream("Draw.bin", FileMode.Open);
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+			List<Shape> temp = (List<Shape>)binaryFormatter.Deserialize(fStream);
+			dialogProcessor.ShapeList.Clear();
+			dialogProcessor.ShapeList = temp;
+			fStream.Close();
+
+			viewPort.Invalidate();
+
+        }
+
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
     }
 }
 
